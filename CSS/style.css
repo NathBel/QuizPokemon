@@ -1,0 +1,77 @@
+body{
+    background-color: #00A1FF;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+}
+
+#headtitle{
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+}
+
+.menu{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 40%;
+    margin: 0 auto;
+}
+
+#pokemon_input{
+    border-radius: 15px;
+    border: none;
+    width: 50%;
+    height: 30px;
+}
+
+#pokemon_input:focus {
+    border: none;
+}
+
+@keyframes headshake {
+    25% {
+        transform: translateX(2%);
+    }
+    75% {
+        transform: translateX(2%);
+    }
+}
+
+.menu_button{
+    border-radius: 10px;
+    border: none;
+    width: 10%;
+    height: 30px;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+}
+
+#menu_start_button{
+    background-color: #38FB60;
+}
+
+#menu_stop_button{
+    background-color: #EC3636;
+}
+
+#table_container{
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+th, td{
+    border: solid 1px white;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+th, td{
+    width: 80px;
+}
+
+@keyframes goodAnswer {
+    0%{background-color: #77E47F;}
+    100%{background-color: none;}
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quiz Pokémon</title>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="icon" href="images/favicon-16x16.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <header>
+        <h1 id="headtitle">Serez-vous capable de retrouvez les 151 premiers pokémon ?</h1>
+        <div class="menu">
+            <div class="ratio">
+                <p id="pokemon_ratio">0/151</p>
+            </div>
+            <input type="text" id="pokemon_input" onChange="CheckAnswer()" disabled>
+            <button class="menu_button" id="menu_start_button">START</button>
+            <button class="menu_button" id="menu_stop_button">STOP</button>
+            <time id="chronometre"></time>
+        </div>
+    </header>
+
+    <div id="table_container">
+        <table id="table">
+            <thead>
+                <th>Numéro</th>
+                <th>Nom</th>
+                <th>Numéro</th>
+                <th>Nom</th>
+                <th>Numéro</th>
+                <th>Nom</th>
+                <th>Numéro</th>
+                <th>Nom</th>
+                <th>Numéro</th>
+                <th>Nom</th>
+                <th>Numéro</th>
+                <th>Nom</th>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+
+    <script src="JS/main.js"></script>
+
+</body>
+</html>
