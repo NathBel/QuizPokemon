@@ -33,11 +33,11 @@ let pokedex = ['Bulbizarre',
     'Nidoran femelle',
     'Nidorina',
     'Nidoqueen',
-    'Nidoran mâle',
+    'Nidoran male',
     'Nidorino',
     'Nidoking',
-    'Mélofée',
-    'Mélodelfe',
+    'Melofee',
+    'Melodelfe',
     'Goupix',
     'Feunard',
     'Rondoudou',
@@ -50,7 +50,7 @@ let pokedex = ['Bulbizarre',
     'Paras',
     'Parasect',
     'Mimitoss',
-    'Aéromite',
+    'Aeromite',
     'Taupiqueur',
     'Triopikeur',
     'Miaouss',
@@ -70,7 +70,7 @@ let pokedex = ['Bulbizarre',
     'Machoc',
     'Machopeur',
     'Mackogneur',
-    'Chétiflor',
+    'Chetiflor',
     'Boustiflor',
     'Empiflor',
     'Tentacool',
@@ -82,8 +82,8 @@ let pokedex = ['Bulbizarre',
     'Galopa',
     'Ramoloss',
     'Flagadoss',
-    'Magnéti',
-    'Magnéton',
+    'Magneti',
+    'Magneton',
     'Canarticho',
     'Doduo',
     'Dodrio',
@@ -113,13 +113,13 @@ let pokedex = ['Bulbizarre',
     'Smogo',
     'Smogogo',
     'Rhinocorne',
-    'Rhinoféros',
+    'Rhinoferos',
     'Leveinard',
     'Saquedeneu',
     'Kangourex',
     'Hypotrempe',
     'Hypocéan',
-    'Possirène',
+    'Possirene',
     'Poissoroy',
     'Stari',
     'Staross',
@@ -133,7 +133,7 @@ let pokedex = ['Bulbizarre',
     'Magicarpe',
     'Léviator',
     'Lokhlass',
-    'Métamorph',
+    'Metamorph',
     'Evoli',
     'Aquali',
     'Voltali',
@@ -143,7 +143,7 @@ let pokedex = ['Bulbizarre',
     'Amonistar',
     'Kabuto',
     'Kabutops',
-    'Ptéra',
+    'Ptera',
     'Ronflex',
     'Artikodin',
     'Electhor',
@@ -172,7 +172,6 @@ function createTable(){
     let tbody = document.createElement('tbody');
 
     t = document.getElementById('table');
-    console.log(t);
     t.appendChild(tbody);
 
     for (i=0; i<(pokedex.length/6); i++){
@@ -207,6 +206,9 @@ createTable();
 function _start(){
     input_pokemon.disabled = false;
     createTable();
+    list_pokemon_found = [];
+    pokemon_found = -1;
+    incrementRatio()
     sec = 00;
     min = 15;
     timer();
@@ -231,7 +233,7 @@ function _stop(){
         }  
     }
     input_pokemon.disabled = true;
-    clearTimeout(t);  
+    clearTimeout(t);
 }
 
 function incrementRatio(){
@@ -247,13 +249,21 @@ function incrementRatio(){
 function normalize(string){
     string = string.toLowerCase();
     string = string[0].toUpperCase() + string.slice(1);
-    return string;
+
+    var b="áàâäãåçéèêëíïîìñóòôöõúùûüýÁÀÂÄÃÅÇÉÈÊËÍÏÎÌÑÓÒÔÖÕÚÙÛÜÝ",
+    c="aaaaaaceeeeiiiinooooouuuuyAAAAAACEEEEIIIINOOOOOUUUUY",
+    d="";
+    for(var i = 0, j = string.length; i < j; i++) {
+        var e = string.substr(i, 1);
+        d += (b.indexOf(e) !== -1) ? c.substr(b.indexOf(e), 1) : e;
+    }
+    return d;
+    
 }
 
 function CheckAnswer(){
     input_value = input_pokemon.value;
-
-    if (pokedex.includes(normalize(input_value)) && !(list_pokemon_found.includes(input_value))){
+    if (pokedex.includes(normalize(input_value)) && !(list_pokemon_found.includes(normalize(input_value)))){
 
         incrementRatio();
 
@@ -271,8 +281,8 @@ function CheckAnswer(){
         input_pokemon.value = "";
     }
     else{
-        console.log("réponse incorrect");
-        input_pokemon.style.animation = "headshake 100ms 3";
+        input_pokemon.classList.add("animation");
+        const myTimeout = setTimeout(function anim(){ input_pokemon.classList.remove("animation"); }, 1000);
     }
 }
 

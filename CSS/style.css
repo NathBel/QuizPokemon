@@ -31,11 +31,15 @@ body{
 
 @keyframes headshake {
     25% {
-        transform: translateX(2%);
+        transform: translateX(1%);
     }
     75% {
-        transform: translateX(2%);
+        transform: translateX(1%);
     }
+}
+
+.animation{
+    animation: headshake 100ms cubic-bezier(.4,.1,.6,.9) 2;
 }
 
 .menu_button{
